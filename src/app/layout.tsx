@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Monomaniac_One } from "next/font/google";
 import "./globals.css";
 
-import Header from "../components/Header";
+import Header from "@/components/Header/HeaderMain/Header";
+import Sidebar from "@/components/Sidebar/Sidebar";
 
 const monomaniac = Monomaniac_One({
   weight: "400",
@@ -16,15 +17,23 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
-      <body className={monomaniac.className}>
-        <Header />
-        <main className="min-h-screen">{children}</main>
-        {/* <Footer />  */}
+      <body className={`${monomaniac.className} bg-black text-white`}>
+        {/* Вся страница — вертикально */}
+        <div className="flex flex-col min-h-screen">
+          {/* Header — сверху */}
+          <Header />
+
+          {/* Контент — Sidebar + Main */}
+          <div className="flex flex-1">
+            <Sidebar />
+            <main className="flex-1">{children}</main>
+          </div>
+        </div>
       </body>
     </html>
   );
