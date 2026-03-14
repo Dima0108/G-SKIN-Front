@@ -64,7 +64,7 @@ const FiltersCS2 = ({ onSearchChange, onPriceChange }: FiltersCS2Props) => {
             {/* Список фильтров */}
             <div className="flex flex-col gap-[6px] text-base">
                 {[
-                    'Saved filter',
+                    'Saved filters',
                     'Price',
                     'Delivery Speed',
                     'Quality',
